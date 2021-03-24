@@ -37,10 +37,6 @@ def hello_park():
     cur.close()
     conn.close()
 
-
-
-
-
     return Response(response=output,
                     status=200,
                     mimetype="application/json")

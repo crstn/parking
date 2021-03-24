@@ -41,12 +41,18 @@
 	<div id='map'></div>
 
 	<script>
+
+		phus = L.geoJSON()
+
 		function onMapClick(e) {
 			$.ajax({
 				url: "/parking?" + "lat=" +e.latlng.lat +"&lng=" + e.latlng.lng
 			}).done(function(data) {
-				console.log(data);
-				L.geoJSON(data).addTo(map);
+
+				phus.remove();
+
+				phus = L.geoJSON(data)
+				phus.addTo(map);
 			});
 
 		}
